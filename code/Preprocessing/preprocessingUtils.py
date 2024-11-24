@@ -1,6 +1,7 @@
 import pandas as pd
 import nltk
 import string
+import ast
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
@@ -14,6 +15,15 @@ class TextPreprocessor:
         # Initialize stopwords and lemmatizer
         self.stop_words = set(stopwords.words('english'))
         self.lemmatizer = WordNetLemmatizer()
+
+
+    def load_dataset(self, path):
+        dataset_df = pd.read_csv(path)
+
+        # Turn the 2 first columns from strings to actual lists of strings
+        dataset_df.iloc[:, :2] = dataset_df.iloc[:, :2].map(ast.literal_eval)
+
+        return dataset_df
 
     def remove_punctuation(self, df):
         """Remove punctuation from words in both columns of a DataFrame"""
