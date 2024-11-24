@@ -1,3 +1,2 @@
-nltk
-strings
-pandas
+pandas==2.2.3
+nltk==3.9.1
