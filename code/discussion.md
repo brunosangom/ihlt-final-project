@@ -15,7 +15,7 @@ common preprocessing: removing stop words and converting to lower case.
 # Results
 As we mentioned before, we evaluated the various feature types using three distinct models: Multi-Layer Perceptron (MLP), Support Vector Regressor (SVR), and Random Forest Reggressor (RFR). The features analyzed are the previosly mentioned Lexical, Syntactic and Strings (each individually), as well as an Unrestricted (Lexical + Syntactic + Strings) set, and an additional FeatureSelection set extracted from Unrestricted. For MLP and SVR the FeatureSelection set is calculated based on the Pearson correlation of each individual feature with the Gold Standard, while for the RFR it is based on the feature importance calculated by the Random Forest algorithm.
 
-Each of the training sets' performance is quantified by the Pearson correlation of the model predictions with the Gold Standard, with higher values indicating stronger predictive relevance. These results inform us about which feature types and models are most suitable for the STS task. They are summarized in the following table:
+Each of the training sets' performance is quantified by the Pearson correlation of the Gold Standard with the model predictions on the test set, with higher values indicating stronger predictive relevance. These results inform us about which feature types and models are most suitable for the STS task. They are summarized in the following table:
 
 | Features           | MLP         | SVR         | RFR         |
 |--------------------|-------------|-------------|-------------|
@@ -25,32 +25,60 @@ Each of the training sets' performance is quantified by the Pearson correlation 
 | Unrestricted       | 0.652460    | 0.743904    | **0.757023**|
 | FeatureSelection   | 0.743657    | 0.741766    | 0.744606    |
 
-### Feature Selection
+From these results, we make the following observations:
+- The best score was achieved by the RFR model with the Unrestricted feature set, with a Pearson correlation of **0.757023**
+- When considering feature types individually, the Syntactic features seem to be slightly less informative than the Lexical and Strings, suggesting that the similarity between texts is more related to the words themselves than to their roles in a sentence.
+- The SVR and RFR significantly improve their scores when using all the feature types together (Unrestricted), indicating that there is information that can be inferred from the combination of the different feature types. The MLP does not increase when trained on Unrestricted, but we suspect this might be an issue with overfitting, since the validation score improved for this run. This could be fixed with further experimentation on larger architecture configurations and different training parameters.
+- Generally, the FeatureSelection set achieves consistent results, showing that most of the information is encoded in a minority of the features. It also seems to substantially paliate the training issue that the MLP model had with the Unrestricted features, by removing noise and focusing on impactful features.
+- The RFR has consistently better performance than the MLP and SVR, which are mostly close except for some inconsistencies of MLP. 
 
-Top 10 feature correlations:
-    - lemmas_wn_aug_overlap: 0.7233182098358424
-    - normal_char_2gram: 0.7215526758966642
-    - lemmas_char_2gram: 0.6901581750008041
-    - sw_char_2gram: 0.6876105592190485
-    - sw_gst_5: 0.6666336863967723
-    - lemmas_gst_5: 0.6661478233635988
-    - wsd_wn_aug_overlap: 0.6586188923309088
-    - normal_char_3gram: 0.6514041862188327
-    - lemmas_char_3gram: 0.6478882891792085
-    - sw_char_3gram: 0.643363404655336
+### Top Features
+In addition to the overall results, we also extracted feature-specific results (the ones used for FeatureSelection), that allow us to study which are the most important features and the characteristics they share.
 
-Top 10 feature importances:
-    - lemmas_wn_aug_overlap: 0.4325020377546965
-    - normal_char_2gram: 0.16297134111640896
-    - chunk_sim_s: 0.0412800853629427
-    - lemmas_weighted_overlap: 0.02753037523823193
-    - normal_char_5gram: 0.01989175950164162
-    - wsd_wn_aug_overlap: 0.016492690513259033
-    - wsd_lin_similarity: 0.014270287965658636
-    - sw_gst_5: 0.014165231257718914
-    - lemmas_resnik_similarity: 0.010444430980915709
-    - wsd_resnik_similarity: 0.010332560312099703
+The next table displays the top 10 features according to Pearson correlation with the Gold Standard:
 
+| Feature                | Correlation Score |
+|------------------------|-------------------|
+| lemmas_wn_aug_overlap  | 0.7233           |
+| normal_char_2gram      | 0.7216           |
+| lemmas_char_2gram      | 0.6902           |
+| sw_char_2gram          | 0.6876           |
+| sw_gst_5               | 0.6666           |
+| lemmas_gst_5           | 0.6661           |
+| wsd_wn_aug_overlap     | 0.6586           |
+| normal_char_3gram      | 0.6514           |
+| lemmas_char_3gram      | 0.6479           |
+| sw_char_3gram          | 0.6434           |
 
+We can observe that only 3 types of features appear on the list:
+- *WordNet-Augmented Word Overlap:* For the Lemmatized and the Word Sense Disambiguation sentences. It seems to be the feature that best captures the lexical information of the words in sentences.
+- *Character n-grams:* For the Normal, no-Stopwords, and Lemmatized sentences, with values 2 and 3 for n. The comparison of character distributions between sentences appears to be very relevant to STS.
+- *Greedy String Tiling:* For the no-Stopwords and Lemmatized sentences, both with minimum tile length of 5 characters. The proportion of string tiles that align between sentences also seems to encode great part of their similarity.
+
+Out of these 3 features, 1 is Lexical and the other 2 are Strings features.
+
+**Top 10 Feature Importances**
+
+| Feature                | Importance Score |
+|------------------------|------------------|
+| lemmas_wn_aug_overlap  | 0.4325          |
+| normal_char_2gram      | 0.1630          |
+| chunk_sim_s            | 0.0413          |
+| lemmas_weighted_overlap| 0.0275          |
+| normal_char_5gram      | 0.0199          |
+| wsd_wn_aug_overlap     | 0.0165          |
+| wsd_lin_similarity     | 0.0143          |
+| sw_gst_5               | 0.0142          |
+| lemmas_resnik_similarity| 0.0104         |
+| wsd_resnik_similarity  | 0.0103          |
+
+We observe that there are 4 common features among the 2 tables: ``lemmas_wn_aug_overlap``, ``normal_char_2gram``, ``wsd_wn_aug_overlap``, and ``sw_gst_5``, which reinforces the relevance of these features when identifying paraphrases. It is especially remarkable that the top 2 features hold a substantially greater importance score than the rest (x10 and x4, respectively, when compared to the 3rd most important feature), which indicates that these features encode most of the information necessary to predict the similarity between sentence-pairs.
+
+The rest of the features that appear on the second table include Chunk Similarity of Subjects, Weighted Word Overlap, and Pairwise Word Similarity (with the Lin and Resnik similarity measures). Out of the 6 features that appear on this list, 3 are Lexical, 1 Syntactic and 2 Strings-related.
 
 # Conclusion
+In conclusion, the analysis reveals that combining various feature types (Lexical, Syntactic, and Strings) consistently provides substantial improvements over applying them on their own, especially when using the SVR and RFR predictors. The MLP, however, showed limited performance, likely due to insufficient generalization capability of the architectures used for the experiment. Feature selection significantly reduced noise, leading to more consistent performance across models.
+
+The results of our comprehensive study demonstrate that the Random Forest Regressor (RFR) with the Unrestricted feature set (containing Lexical, Syntactic and String-based features) yields the best performance in predicting Semantic Text Similarity, with a Pearson correlation of **0.757023** with the Gold Standard.
+
+Finally, some specific features, notably *WordNet-Augmented Word Overlap* and *Character n-grams*, were identified as most influential in predicting similarity, highlighting the importance of Lexical and String-related features. Overall, the study emphasizes the value of feature combination and selection in enhancing STS prediction accuracy.
