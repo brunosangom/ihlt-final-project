@@ -1,7 +1,12 @@
 # Introduction
 In this study, we investigate the effectiveness of various types of features in predicting Semantic Text Similarity (STS) through Multi-Layer Perceptrons (MLPs), Support Vector Regressors (SVRs), and Random Forest Reggressors (RFRs). We evaluate Lexical features, Syntactic features, and purely String-related features, to examine their relative contributions to the STS prediction performance of the models.
 
-# Methodology
+# Methodology 
+common preprocessing: removing stop words and converting to lower case. 
+- lexical: 
+    * jaccard distance directly to the set of words
+    * containment measure (Broder, 1997) = len(intersection) / min(len(set_a), len(set_b))
+    * 
 
 ## Feature Extraction
 
