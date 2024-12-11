@@ -72,3 +72,8 @@ We observe that there are 4 common features among the 2 tables: ``lemmas_wn_aug_
 The rest of the features that appear on the second table include Chunk Similarity of Subjects, Weighted Word Overlap, and Pairwise Word Similarity (with the Lin and Resnik similarity measures). Out of the 6 features that appear on this list, 3 are Lexical, 1 Syntactic and 2 Strings-related.
 
 # Conclusion
+In conclusion, the analysis reveals that combining various feature types (Lexical, Syntactic, and Strings) consistently provides substantial improvements over applying them on their own, especially when using the SVR and RFR predictors. The MLP, however, showed limited performance, likely due to insufficient generalization capability of the architectures used for the experiment. Feature selection significantly reduced noise, leading to more consistent performance across models.
+
+The results of our comprehensive study demonstrate that the Random Forest Regressor (RFR) with the Unrestricted feature set (containing Lexical, Syntactic and String-based features) yields the best performance in predicting Semantic Text Similarity, with a Pearson correlation of **0.757023** with the Gold Standard.
+
+Finally, some specific features, notably *WordNet-Augmented Word Overlap* and *Character n-grams*, were identified as most influential in predicting similarity, highlighting the importance of Lexical and String-related features. Overall, the study emphasizes the value of feature combination and selection in enhancing STS prediction accuracy.
