@@ -1,0 +1,101 @@
+\section{Results}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+    \frametitle{Model \& Feature Overview}
+    \begin{itemize}
+      \item Models: MLP, SVR, RFR.
+      \item Features: 
+      \begin{itemize}
+        \item Lexical, Syntactic, Strings (individually).
+        \item Unrestricted (Lexical + Syntactic + Strings).
+        \item FeatureSelection, based on:
+        \begin{itemize}
+            \item Pearson correlation for MLP/SVR
+            \item Feature importance for RFR
+        \end{itemize}
+      \end{itemize}
+      \item Performance measured using Pearson correlation with the Gold Standard
+    \end{itemize}
+\end{frame}
+    
+
+\begin{frame}
+    \frametitle{Results Summary}
+    \begin{table}[ht]
+        \centering
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Features} & \textbf{MLP} & \textbf{SVR} & \textbf{RFR} \\
+            \hline
+            Lexical            & 0.607       & 0.681       & 0.728 \\
+            Syntactic          & 0.666       & 0.658       & 0.661 \\
+            Strings            & 0.674       & 0.676       & 0.685 \\
+            Unrestricted       & 0.652       & 0.744       & \textbf{0.757} \\
+            FeatureSelection   & 0.744       & 0.742       & 0.745 \\
+            \hline
+        \end{tabular}
+    \end{table}
+    \begin{itemize}
+      \item Best performance: RFR with Unrestricted (0.757)
+      \item Syntactic features less informative than Lexical/Strings
+      \item Feature combination improves SVR/RFR
+      \item MLP suffers from overfitting
+    \end{itemize}
+\end{frame}
+    
+
+\begin{frame}
+    \frametitle{Top Features: Pearson Correlation}
+    Top 5 features based on Pearson correlation with the Gold Standard:
+  
+    \begin{table}[ht]
+      \centering
+      \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Feature} & \textbf{Correlation} \\
+        \hline
+        lemmas\_wn\_aug\_overlap & 0.7233 \\
+        normal\_char\_2gram & 0.7216 \\
+        lemmas\_char\_2gram & 0.6902 \\
+        sw\_char\_2gram & 0.6876 \\
+        sw\_gst\_5 & 0.6666 \\
+        \hline
+      \end{tabular}
+    \end{table}
+  
+    Three key feature types:
+    \begin{itemize}
+      \item WordNet-Augmented Overlap (Lexical)
+      \item Character n-grams (String-based)
+      \item Greedy String Tiling (String-based)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Top Features: Feature Importance}
+    Top 5 features based on Feature Importance scores from RFR:
+  
+    \begin{table}[ht]
+      \centering
+      \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Feature} & \textbf{Importance} \\
+        \hline
+        lemmas\_wn\_aug\_overlap & 0.4325 \\
+        normal\_char\_2gram & 0.1630 \\
+        chunk\_sim\_s & 0.0413 \\
+        lemmas\_weighted\_overlap & 0.0275 \\
+        normal\_char\_5gram & 0.0199 \\
+        \hline
+      \end{tabular}
+    \end{table}
+  
+    The top 2 features:
+    \begin{itemize}
+      \item Common with Pearson correlation table.
+      \item Have significantly higher importance, indicating their dominance in sentence similarity prediction
+    \end{itemize}
+    
+    Feature types: 2 Lexical, 1 Syntactic, 2 Strings-related.
+\end{frame}
