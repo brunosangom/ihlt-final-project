@@ -57,7 +57,7 @@ We can observe that only 3 types of features appear on the list:
 
 Out of these 3 features, 1 is Lexical and the other 2 are Strings features.
 
-**Top 10 Feature Importances**
+The next table displays the top 10 features according to the Feature Importance assigned by the RFR algorithm:
 
 | Feature                | Importance Score |
 |------------------------|------------------|
