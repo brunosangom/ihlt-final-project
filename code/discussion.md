@@ -4,18 +4,16 @@ In this study, we investigate the effectiveness of various types of features in 
 # Methodology  
 The common preprocessing pipeline involves removing punctuation and converting all text to lowercase.  
 
-For specific lexical and string feature extraction, an additional preprocessing step is applied, obtaining a total of four different types of pairs of sentence.
+For specific Lexical and String feature extraction, additional preprocessing steps are applied, obtaining various different types of pairs of sentences:
 
 - Stopwords are removed.  
 - Text is converted to lowercase.  
-- A word sense disambiguation approach is used: each word is replaced with its most common synonym (based on the most frequent synset). If no synset exists for a word, it remains unchanged.  
+- Only for Lexical, a Word Sense Disambiguation approach is used: each word is replaced with its most common synonym (based on the most frequent synset). If no synset exists for a word, it remains unchanged.  
 
 ## Feature Extraction
 - **Lexical**:
-    - *Jaccard distance*: Measures the dissimilarity between two sets by calculating the size of their intersection divided by
-     the size of their union.
-    - *Containment measure*: Focuses on the proportion of the smaller set that overlaps with the larger set, emphasizing 
-    partial matches.
+    - *Jaccard distance*: Measures the dissimilarity between two sets by calculating the size of their intersection divided by the size of their union.
+    - *Containment measure*: Focuses on the proportion of the smaller set that overlaps with the larger set, emphasizing partial matches.
     - *Lin similarity*: A semantic similarity measure based on the Information Content (IC) of the least common subsumer of two concepts, normalized by their IC.
     - *Resnik similarity*: Evaluates semantic similarity using the Information Content (IC) of the most informative shared ancestor in a hierarchy like WordNet.
     - *WordNet augmented word overlap*: Enhances word overlap measures by incorporating semantic relationships derived from the WordNet lexical database.
@@ -23,17 +21,17 @@ For specific lexical and string feature extraction, an additional preprocessing 
     - *Greedy lemma aligning overlap*: Aligns words or lemmas in a greedy manner to maximize the overlap between two texts, considering synonyms or lemmatized forms.
 
 - **Syntactic**:
-    -*N-grams overlap removing function words*:  
+    - *N-grams overlap removing function words*:  
     Function words (e.g., prepositions, conjunctions, articles) carry less meaning and can introduce noise. Removing them enhances semantic similarity estimates. Part-of-Speech (POS) tagging, essential for identifying grammatical roles, is used to filter out these function words. The overlap of n-grams (for n=1, 2, 3) is computed between the two sentences after removing function words.
 
-    -*Syntactic roles similarity**:  
+    - *Syntactic roles similarity**:  
     Semantic similarity can be measured by comparing words or phrases with the same syntactic roles across sentences. Using the Stanza library (Stanford NLP Group, 2006), syntactic roles like predicates (p), objects (o), and subjects (s) are grouped into "chunks." Similarity between chunks is calculated using Lin similarity for the lemmas of the words in each chunk. The final similarity score includes four measures: the similarity of predicates, objects, subjects, and the overall sentence similarity (average of the three).
 
-    -*Syntactic dependencies overlap*:  
+    - *Syntactic dependencies overlap*:  
     Dependency relations between words in a sentence (edges connecting governing words and dependents) are analyzed for overlap. The weighted dependency relation coverage (wdrc) is computed for each sentence relative to the other. As this measure is asymmetric, the overall similarity is the harmonic mean of $\text{wdrc}(S_1, S_2)$ and $\text{wdrc}(S_2, S_1)$.
 
 - **Strings**:
-    -*Character n-grams*:  
+    - *Character n-grams*:  
     This method captures sequences of characters (e.g., 3-grams, 4-grams) from a sentence to compare its structure. By using TF-IDF vectorization and cosine similarity, it measures how similar two strings are based on their character sequences, regardless of word choice. 
 
     - *Greedy String Tiling (GST)*:  
@@ -41,11 +39,15 @@ For specific lexical and string feature extraction, an additional preprocessing 
 
 ## Model Training and Testing
 
-Three distinct models were trained to predict semantic similarity: Random Forest Regressor (RFR), Support Vector Regressor (SVR), and Multi-Layer Perceptron (MLP). These models were applied to lexical, syntactic, and string features separately, as well as to all of them combined. Feature selection was also applied in the latter scenario, when working with all the features, to select the 10 that had the highest Pearson correlation coefficient with the ground truth.
+Three distinct models were trained to predict semantic similarity:
+
+- Multi-Layer Perceptron (MLP)
+- Support Vector Regressor (SVR)
+- Random Forest Regressor (RFR)
+
+The features analyzed are the previosly mentioned Lexical, Syntactic and Strings (each individually), as well as an Unrestricted (Lexical + Syntactic + Strings) set, and an additional FeatureSelection set extracted from Unrestricted. For MLP and SVR the FeatureSelection set is calculated based on the Pearson correlation of each individual feature with the Gold Standard, while for the RFR it is based on the feature importance calculated by the Random Forest algorithm.
 
 # Results
-As we mentioned before, we evaluated the various feature types using three distinct models: Multi-Layer Perceptron (MLP), Support Vector Regressor (SVR), and Random Forest Reggressor (RFR). The features analyzed are the previosly mentioned Lexical, Syntactic and Strings (each individually), as well as an Unrestricted (Lexical + Syntactic + Strings) set, and an additional FeatureSelection set extracted from Unrestricted. For MLP and SVR the FeatureSelection set is calculated based on the Pearson correlation of each individual feature with the Gold Standard, while for the RFR it is based on the feature importance calculated by the Random Forest algorithm.
-
 Each of the training sets' performance is quantified by the Pearson correlation of the Gold Standard with the model predictions on the test set, with higher values indicating stronger predictive relevance. These results inform us about which feature types and models are most suitable for the STS task. They are summarized in the following table:
 
 | Features           | MLP         | SVR         | RFR         |
