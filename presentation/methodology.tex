@@ -5,18 +5,18 @@
     \begin{itemize}
         \item Feature extraction:
         \begin{itemize}
-            \item Syntactic features (8)
             \item Lexical features (32)
+            \item Syntactic features (8)
             \item String features (18)
         \end{itemize}
         \vspace{0.4cm}
         \item Preprocessing: remove punctuation and convert to lower case.
         \begin{itemize}
-            \item Extra preprocessing (for lexical and string feature extraction):
+            \item Extra preprocessing:
             \begin{itemize}
-                \item Stop words
-                \item Lemmatization
-                \item Word sense disambiguation
+                \item Stop words (for lexical and string feature extraction)
+                \item Lemmatization (for lexical and string feature extraction)
+                \item Word sense disambiguation (for lexical feature extraction)
             \end{itemize}
         \end{itemize}
         \vspace{0.4cm}
@@ -29,44 +29,6 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Syntactic Features}
-    \textit{Process of analyzing a sentence's structure according to the grammatical rules and how words are related withing 
-    the sentence.}
-    \vspace{1cm}
-    \begin{itemize}
-        \item N-grams overlap removing function words (prepositions, conjunctions, articles)
-    \end{itemize}
-    \vspace{1cm}
-    Sentence: "a horse eats carrots" $\Rightarrow$ "horse eats carrots" (content words)
-         \[ ngo(S_1, S_2) = 2 \cdot \left( \frac{|S_1|}{|S_1 \cap S_2|} + \frac{|S_2|}{|S_1 \cap S_2|} \right)^{-1} \]
-\end{frame}
-
-\begin{frame}{Syntactic Features}
-    \begin{itemize}
-        \item Syntactic roles similarity 
-    \end{itemize}
-    \vspace{0.3cm}
-    \texttt{python library Stanza} (Stanford NLP Group, 2006)\\ \vspace{0.1cm}
-    Sentence: "a horse eats carrots and the man cleans the farm for the owner" \\ \vspace{0.1cm}
-    \texttt{'p': [\{'carrot','eat'\}, \{'owner','farm','for','clean'\}],
-    \\ 's': [\{'horse'\}, \{'man'\}], 
-    \\ 'o': [\{'carrot'\}, \{'farm'\}, \{'for', 'owner'\}]}
-         \[ chunksim(C1, C2) = \sum_{ l_1 \in C1} \sum_{l_2 \in C2}  ssim(l_1, l_2) \]
-\end{frame}
-
-\begin{frame}{Syntactic Features}
-    \begin{itemize}
-        \item Syntactic dependencies overlap
-    \end{itemize}
-    \vspace{0.2cm}
-    \texttt{python library Stanza} (Stanford NLP Group, 2006) \\
-    Sentence: "a horse eats carrots" \\
-    \begin{center}
-        \includegraphics[width=0.22\textwidth]{figures/dependency_tree.png}
-    \end{center}
-        \[ \text{wdrc}(S_1, S_2) = \frac{\sum_{r \in S_1 \cap S_2} \max(\text{ic}(g(r)), \text{ic}(d(r)))}{\sum_{r \in S_2} 
-\max(\text{ic}(g(r)), \text{ic}(d(r)))} \]
-\end{frame}
 
 \begin{frame}{Lexical features}
 \textit{The process of analyzing a sentence's structure through the identification and classification of individual words.}
@@ -130,6 +92,46 @@
     P is the set of lemma pairs obtained by greedy alignment.
 \end{itemize}
 \end{frame}
+
+\begin{frame}{Syntactic Features}
+    \textit{Process of analyzing a sentence's structure according to the grammatical rules and how words are related withing 
+    the sentence.}
+    \vspace{1cm}
+    \begin{itemize}
+        \item N-grams overlap removing function words (prepositions, conjunctions, articles)
+    \end{itemize}
+    \vspace{1cm}
+    Sentence: "a horse eats carrots" $\Rightarrow$ "horse eats carrots" (content words)
+         \[ ngo(S_1, S_2) = 2 \cdot \left( \frac{|S_1|}{|S_1 \cap S_2|} + \frac{|S_2|}{|S_1 \cap S_2|} \right)^{-1} \]
+\end{frame}
+
+\begin{frame}{Syntactic Features}
+    \begin{itemize}
+        \item Syntactic roles similarity 
+    \end{itemize}
+    \vspace{0.3cm}
+    \texttt{python library Stanza} (Stanford NLP Group, 2006)\\ \vspace{0.1cm}
+    Sentence: "a horse eats carrots and the man cleans the farm for the owner" \\ \vspace{0.1cm}
+    \texttt{'p': [\{'carrot','eat'\}, \{'owner','farm','for','clean'\}],
+    \\ 's': [\{'horse'\}, \{'man'\}], 
+    \\ 'o': [\{'carrot'\}, \{'farm'\}, \{'for', 'owner'\}]}
+         \[ chunksim(C1, C2) = \sum_{ l_1 \in C1} \sum_{l_2 \in C2}  ssim(l_1, l_2) \]
+\end{frame}
+
+\begin{frame}{Syntactic Features}
+    \begin{itemize}
+        \item Syntactic dependencies overlap
+    \end{itemize}
+    \vspace{0.2cm}
+    \texttt{python library Stanza} (Stanford NLP Group, 2006) \\
+    Sentence: "a horse eats carrots" \\
+    \begin{center}
+        \includegraphics[width=0.22\textwidth]{figures/dependency_tree.png}
+    \end{center}
+        \[ \text{wdrc}(S_1, S_2) = \frac{\sum_{r \in S_1 \cap S_2} \max(\text{ic}(g(r)), \text{ic}(d(r)))}{\sum_{r \in S_2} 
+\max(\text{ic}(g(r)), \text{ic}(d(r)))} \]
+\end{frame}
+
 
 \begin{frame}{String Feature}
 
