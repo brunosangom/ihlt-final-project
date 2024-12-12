@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage{cite}
@@ -65,4 +66,73 @@
     \end{itemize}    
 \end{frame}
 
+=======
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fontawesome}
+\usepackage{multicol}
+
+
+% Beamer theme settings
+\usetheme{CambridgeUS}
+\usecolortheme{default}
+
+\title{Semantic Textual Similarity}
+\author{Bruno Sánchez Gómez and María del Carmen Ramírez Trujillo}
+\date{\today}
+
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=0.6\paperwidth,ht=2.5ex,dp=1.125ex,center]{author in head/foot}%
+            \hspace*{2mm}\insertshortauthor
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=0.3\paperwidth,ht=2.5ex,dp=1.125ex,center]{title in head/foot}%
+            \insertshorttitle
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=0.1\paperwidth,ht=2.5ex,dp=1.125ex,center]{date in head/foot}%
+            \hspace*{-2mm}\insertframenumber{} / \inserttotalframenumber
+        \end{beamercolorbox}%
+    }%
+    \vskip0pt%
+}
+
+\begin{document}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+% Introduction
+\section{Introduction}
+\frame{\tableofcontents[currentsection]}
+\begin{frame}{Introduction}
+    \begin{itemize}
+        \item {\large Based on the data and evaluation frameworks for \textit{SemEval-2012 Task 6: A Pilot on Semantic Textual
+         Similarity,} propose a framework to evaluate semantic similarity between pairs of sentences.}
+    \end{itemize}
+\end{frame}
+
+\input{methodology} % mari
+\input{results} % bruno
+\input{conclusions}
+
+% References
+\begin{frame}{References}
+    \begin{itemize}
+        \item Agirre, Eneko, Daniel Cer, Mona Diab, and Aitor Gonzalez-Agirre. (2012) "SemEval-2012 Task 6: A Pilot on Semantic Textual Similarity." SEM 2012. 385-393. 
+        \item D. Bär, C. Biemann, I. Gurevych and T. Zesch. (2012). UKP: Computing Semantic Textual Similarity by Combining Multiple Content Similarity Measures. 435-440. 
+        \item F. Sari, G. Glavaš, M. Karan, J. Snajder, B. Dalbelo Bašić. (2012). TakeLab: Systems for Measuring Semantic Text Similarity. Proceedings of SemEval-2012. 
+    \end{itemize}    
+\end{frame}
+
+>>>>>>> ea6e1b6084e039e66d8ce3dc7efd2fc1299f6806
 \end{document}

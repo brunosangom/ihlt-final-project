@@ -14,8 +14,9 @@ For specific Lexical and String feature extraction, additional preprocessing ste
 - **Lexical**:
     - *Jaccard distance*: Measures the dissimilarity between two sets by calculating the size of their intersection divided by the size of their union.
     - *Containment measure*: Focuses on the proportion of the smaller set that overlaps with the larger set, emphasizing partial matches.
-    - *Lin similarity*: A semantic similarity measure based on the Information Content (IC) of the least common subsumer of two concepts, normalized by their IC.
-    - *Resnik similarity*: Evaluates semantic similarity using the Information Content (IC) of the most informative shared ancestor in a hierarchy like WordNet.
+    - *Pairwise Word Similarity (Lin & Resnik)*: Measure of the semantic similarity between words of the sentences, based on their Information Content (IC) and the WordNet hierarchy.
+      - *Lin similarity*: Based on the IC of the least common subsumer of two concepts, normalized by their IC.
+      - *Resnik similarity*: Based on the IC of the most informative shared ancestor.
     - *WordNet augmented word overlap*: Enhances word overlap measures by incorporating semantic relationships derived from the WordNet lexical database.
     - *Weighted word overlap*: Extends basic word overlap measures by assigning different weights to words based on their importance or frequency.
     - *Greedy lemma aligning overlap*: Aligns words or lemmas in a greedy manner to maximize the overlap between two texts, considering synonyms or lemmatized forms.
