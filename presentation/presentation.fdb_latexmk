@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1734004013.62904 "c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex" "presentation.pdf" "presentation" 1734004016.62367 0
+["pdflatex"] 1734009942.99803 "c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex" "presentation.pdf" "presentation" 1734009947.35136 0
   "C:/Users/maric/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1599134737 10020123 13fc3899469cf88fe483fb53b44d9711 ""
   "C:/Users/maric/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1733594244 1657513 2fa44a5ba3cb9d6a4282928c23d0775d ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -210,12 +210,12 @@
   "c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex" 1734002587 2194 3b13faf3a7c1544e55d88acf7e8c1103 ""
   "conclusions.tex" 1734000809 551 308c519758d8803ea70fc758abd17dc9 ""
   "figures/dependency_tree.png" 1733982980 13662 d22d2a40b0b5618bb22a6e287874c563 ""
-  "methodology.tex" 1734004012 5671 1dbcf1c2b58b5fa36758f01fe67db101 ""
-  "presentation.aux" 1734004016 4720 579eeec49ea034308974092391a4c79f "pdflatex"
-  "presentation.nav" 1734004016 2738 71bad9aacab7f5a3a74d55e26612155e "pdflatex"
-  "presentation.out" 1734004016 180 46f922bace94f7e96113def26a57d2fd "pdflatex"
+  "methodology.tex" 1734009940 5670 7e0a1b84cb5bc522988d0f5b0a9b538a ""
+  "presentation.aux" 1734009946 4720 579eeec49ea034308974092391a4c79f "pdflatex"
+  "presentation.nav" 1734009946 2738 71bad9aacab7f5a3a74d55e26612155e "pdflatex"
+  "presentation.out" 1734009946 180 46f922bace94f7e96113def26a57d2fd "pdflatex"
   "presentation.tex" 1734002587 2194 3b13faf3a7c1544e55d88acf7e8c1103 ""
-  "presentation.toc" 1734004016 186 9278cf4a0726ebcbb7845d954b075e44 "pdflatex"
+  "presentation.toc" 1734009946 186 9278cf4a0726ebcbb7845d954b075e44 "pdflatex"
   "results.tex" 1734000809 3282 ee4ad3628cd31539134048aa5435e205 ""
   (generated)
   "presentation.aux"
