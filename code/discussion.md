@@ -1,14 +1,38 @@
 # Introduction
 In this study, we investigate the effectiveness of various types of features in predicting Semantic Text Similarity (STS) through Multi-Layer Perceptrons (MLPs), Support Vector Regressors (SVRs), and Random Forest Reggressors (RFRs). We evaluate Lexical features, Syntactic features, and purely String-related features, to examine their relative contributions to the STS prediction performance of the models.
 
-# Methodology 
-common preprocessing: removing stop words and converting to lower case. 
-- lexical: 
-    * jaccard distance directly to the set of words
-    * containment measure (Broder, 1997) = len(intersection) / min(len(set_a), len(set_b))
-    * 
+# Methodology  
+The common preprocessing pipeline involves removing punctuation and converting all text to lowercase.  
+
+For specific lexical and string feature extraction, an additional preprocessing step is applied, obtaining a total of four different types of pairs of sentence.
+  
+- Stopwords are removed.  
+- Text is converted to lowercase.  
+- A word sense disambiguation approach is used: each word is replaced with its most common synonym (based on the most frequent synset). If no synset exists for a word, it remains unchanged.  
 
 ## Feature Extraction
+- **Lexical**:
+    - *Jaccard distance*: Measures the dissimilarity between two sets by calculating the size of their intersection divided by
+     the size of their union.
+    - *Containment measure*: Focuses on the proportion of the smaller set that overlaps with the larger set, emphasizing 
+    partial matches.
+    - *Lin similarity*: A semantic similarity measure based on the Information Content (IC) of the least common subsumer of two concepts, normalized by their IC.
+    - *Resnik similarity*: Evaluates semantic similarity using the Information Content (IC) of the most informative shared ancestor in a hierarchy like WordNet.
+    - *WordNet augmented word overlap*: Enhances word overlap measures by incorporating semantic relationships derived from the WordNet lexical database.
+    - *Weighted word overlap*: Extends basic word overlap measures by assigning different weights to words based on their importance or frequency.
+    - *Greedy lemma aligning overlap*: Aligns words or lemmas in a greedy manner to maximize the overlap between two texts, considering synonyms or lemmatized forms.
+
+- syntactic:
+    -*N-grams overlap removing function words*:  
+    Function words (e.g., prepositions, conjunctions, articles) carry less meaning and can introduce noise. Removing them enhances semantic similarity estimates. Part-of-Speech (POS) tagging, essential for identifying grammatical roles, is used to filter out these function words. The overlap of n-grams (for n=1, 2, 3) is computed between the two sentences after removing function words.
+
+    -*Syntactic roles similarity**:  
+    Semantic similarity can be measured by comparing words or phrases with the same syntactic roles across sentences. Using the Stanza library (Stanford NLP Group, 2006), syntactic roles like predicates (p), objects (o), and subjects (s) are grouped into "chunks." Similarity between chunks is calculated using Lin similarity for the lemmas of the words in each chunk. The final similarity score includes four measures: the similarity of predicates, objects, subjects, and the overall sentence similarity (average of the three).
+
+    -*Syntactic dependencies overlap*:  
+    Dependency relations between words in a sentence (edges connecting governing words and dependents) are analyzed for overlap. The weighted dependency relation coverage (wdrc) is computed for each sentence relative to the other. As this measure is asymmetric, the overall similarity is the harmonic mean of $\text{wdrc}(S_1, S_2)$ and $\text{wdrc}(S_2, S_1)$.
+
+- strings:
 
 ## Model Training and Testing
 
