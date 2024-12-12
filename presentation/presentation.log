@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.3)  12 DEC 2024 12:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.9.3)  12 DEC 2024 12:46
 entering extended mode
 **c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex
 (c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex
@@ -754,15 +754,15 @@ Dictionary: translator-theorem-dictionary, Language: English
 ] [7
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
  (C:\Users\maric\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
  (C:\Users\maric\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 66.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 65.
  (C:\Users\maric\AppData\Local\Programs\MiKTeX\tex/latex/sansmathaccent\ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 ) [8
@@ -772,13 +772,13 @@ File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mat
 ] [10
 
 ]
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 109.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 109.
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 108.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 108.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 109.
+(Font)              for symbol `textbraceleft' on input line 108.
 
 [11
 
@@ -786,14 +786,14 @@ LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 <figures/dependency_tree.png, id=373, 206.7725pt x 251.94125pt>
 File: figures/dependency_tree.png Graphic file (type png)
 <use figures/dependency_tree.png>
-Package pdftex.def Info: figures/dependency_tree.png  used on input line 123.
+Package pdftex.def Info: figures/dependency_tree.png  used on input line 122.
 (pdftex.def)             Requested size: 75.30537pt x 91.75595pt.
  [12
 
  <./figures/dependency_tree.png>]
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
-(Font)              using `OT1/cmss/m/n' instead on input line 149.
+(Font)              using `OT1/cmss/m/n' instead on input line 148.
 
 [13
 
@@ -836,15 +836,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 20007 strings out of 480790
- 382147 string characters out of 2897302
+ 19992 strings out of 480790
+ 381943 string characters out of 2897302
  621625 words of memory out of 3000000
- 35475 multiletter control sequences out of 15000+200000
- 544840 words of font info for 69 fonts, out of 3000000 for 9000
+ 35462 multiletter control sequences out of 15000+200000
+ 541351 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  58i,16n,67p,910b,635s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi12.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on presentation.pdf (21 pages, 318283 bytes).
+Output written on presentation.pdf (21 pages, 318085 bytes).
 PDF statistics:
  712 PDF objects out of 1000 (max. 8388607)
  47 named destinations out of 1000 (max. 500000)

@@ -1,14 +1,12 @@
 # Fdb version 4
-["pdflatex"] 1734003840.05772 "c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex" "presentation.pdf" "presentation" 1734003843.98756 0
+["pdflatex"] 1734004013.62904 "c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex" "presentation.pdf" "presentation" 1734004016.62367 0
   "C:/Users/maric/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1599134737 10020123 13fc3899469cf88fe483fb53b44d9711 ""
   "C:/Users/maric/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1733594244 1657513 2fa44a5ba3cb9d6a4282928c23d0775d ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
-  "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1233951854 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1233951854 928 2dc8d444221b7a635bb58038579b861a ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1233951854 908 2921f8a10601f252058503cc6570e581 ""
-  "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1233951854 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Users/maric/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -212,12 +210,12 @@
   "c:/Users/maric/Documents/MASTERS/PrimerSemestre/IHLT/FinalProject_versionantiguaconflictos/presentation/presentation.tex" 1734002587 2194 3b13faf3a7c1544e55d88acf7e8c1103 ""
   "conclusions.tex" 1734000809 551 308c519758d8803ea70fc758abd17dc9 ""
   "figures/dependency_tree.png" 1733982980 13662 d22d2a40b0b5618bb22a6e287874c563 ""
-  "methodology.tex" 1734003839 5740 d445e01bea89a94054da5282358e5ecc ""
-  "presentation.aux" 1734003843 4720 579eeec49ea034308974092391a4c79f "pdflatex"
-  "presentation.nav" 1734003843 2738 71bad9aacab7f5a3a74d55e26612155e "pdflatex"
-  "presentation.out" 1734003843 180 46f922bace94f7e96113def26a57d2fd "pdflatex"
+  "methodology.tex" 1734004012 5671 1dbcf1c2b58b5fa36758f01fe67db101 ""
+  "presentation.aux" 1734004016 4720 579eeec49ea034308974092391a4c79f "pdflatex"
+  "presentation.nav" 1734004016 2738 71bad9aacab7f5a3a74d55e26612155e "pdflatex"
+  "presentation.out" 1734004016 180 46f922bace94f7e96113def26a57d2fd "pdflatex"
   "presentation.tex" 1734002587 2194 3b13faf3a7c1544e55d88acf7e8c1103 ""
-  "presentation.toc" 1734003843 186 9278cf4a0726ebcbb7845d954b075e44 "pdflatex"
+  "presentation.toc" 1734004016 186 9278cf4a0726ebcbb7845d954b075e44 "pdflatex"
   "results.tex" 1734000809 3282 ee4ad3628cd31539134048aa5435e205 ""
   (generated)
   "presentation.aux"
