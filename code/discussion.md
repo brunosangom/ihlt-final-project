@@ -5,7 +5,7 @@ In this study, we investigate the effectiveness of various types of features in 
 The common preprocessing pipeline involves removing punctuation and converting all text to lowercase.  
 
 For specific lexical and string feature extraction, an additional preprocessing step is applied, obtaining a total of four different types of pairs of sentence.
-  
+
 - Stopwords are removed.  
 - Text is converted to lowercase.  
 - A word sense disambiguation approach is used: each word is replaced with its most common synonym (based on the most frequent synset). If no synset exists for a word, it remains unchanged.  
@@ -22,7 +22,7 @@ For specific lexical and string feature extraction, an additional preprocessing 
     - *Weighted word overlap*: Extends basic word overlap measures by assigning different weights to words based on their importance or frequency.
     - *Greedy lemma aligning overlap*: Aligns words or lemmas in a greedy manner to maximize the overlap between two texts, considering synonyms or lemmatized forms.
 
-- syntactic:
+- **Syntactic**:
     -*N-grams overlap removing function words*:  
     Function words (e.g., prepositions, conjunctions, articles) carry less meaning and can introduce noise. Removing them enhances semantic similarity estimates. Part-of-Speech (POS) tagging, essential for identifying grammatical roles, is used to filter out these function words. The overlap of n-grams (for n=1, 2, 3) is computed between the two sentences after removing function words.
 
@@ -32,9 +32,16 @@ For specific lexical and string feature extraction, an additional preprocessing 
     -*Syntactic dependencies overlap*:  
     Dependency relations between words in a sentence (edges connecting governing words and dependents) are analyzed for overlap. The weighted dependency relation coverage (wdrc) is computed for each sentence relative to the other. As this measure is asymmetric, the overall similarity is the harmonic mean of $\text{wdrc}(S_1, S_2)$ and $\text{wdrc}(S_2, S_1)$.
 
-- strings:
+- **Strings**:
+    -*Character n-grams*:  
+    This method captures sequences of characters (e.g., 3-grams, 4-grams) from a sentence to compare its structure. By using TF-IDF vectorization and cosine similarity, it measures how similar two strings are based on their character sequences, regardless of word choice. 
+
+    - *Greedy String Tiling (GST)*:  
+    GST identifies matching substrings (tiles) between two strings and computes similarity based on their overlap. It focuses on partial matches, measuring how much of one string appears in another. A length threshold (e.g., 5 or 10 characters) ensures that only significant matches contribute to the final similarity score. This method is useful for detecting partial or reordered matches.
 
 ## Model Training and Testing
+
+Three distinct models were trained to predict semantic similarity: Random Forest Regressor (RFR), Support Vector Regressor (SVR), and Multi-Layer Perceptron (MLP). These models were applied to lexical, syntactic, and string features separately, as well as to all of them combined. Feature selection was also applied in the latter scenario, when working with all the features, to select the 10 that had the highest Pearson correlation coefficient with the ground truth.
 
 # Results
 As we mentioned before, we evaluated the various feature types using three distinct models: Multi-Layer Perceptron (MLP), Support Vector Regressor (SVR), and Random Forest Reggressor (RFR). The features analyzed are the previosly mentioned Lexical, Syntactic and Strings (each individually), as well as an Unrestricted (Lexical + Syntactic + Strings) set, and an additional FeatureSelection set extracted from Unrestricted. For MLP and SVR the FeatureSelection set is calculated based on the Pearson correlation of each individual feature with the Gold Standard, while for the RFR it is based on the feature importance calculated by the Random Forest algorithm.
